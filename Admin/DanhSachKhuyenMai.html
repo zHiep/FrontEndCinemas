@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Danh sách tài khoản</title>
+    <title>Danh sách khuyến mãi</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/images/logo/favicon.png">
@@ -19,6 +19,7 @@
 
 <body>
     <div class="app">
+        <div class="notification-toast top-right" id="notification-toast"></div>
         <div class="layout">
             <!-- Header START -->
             <div class="header">
@@ -176,7 +177,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown open">
+                        <li class="nav-item dropdown">
                             <a class="dropdown-toggle" href="javascript:void(0);">
                                 <span class="icon-holder">
                                     <i class="anticon anticon-team"></i>
@@ -187,7 +188,7 @@
                                 </span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="active">
+                                <li>
                                     <a href="DanhSachTaiKhoan.html">Danh sách tài khoản</a>
                                 </li>
                                 <li>
@@ -287,7 +288,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown open">
                             <a class="dropdown-toggle" href="javascript:void(0);">
                                 <span class="icon-holder">
                                     <i class="anticon anticon-dollar"></i>
@@ -298,7 +299,7 @@
                                 </span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li>
+                                <li class="active">
                                     <a href="DanhSachKhuyenMai.html">Danh sách khuyến mãi</a>
                                 </li>
                                 <li>
@@ -343,66 +344,55 @@
             </div>
             <!-- Side Nav END -->
 
-            <!-- Page Container START -->
-            <div class="page-container">
-
+           <!-- Page Container START -->
+           <div class="page-container">
                 <!-- Content Wrapper START -->
                 <div class="main-content">
                     <div class="page-header">
                         <div class="header-sub-title">
                             <nav class="breadcrumb breadcrumb-dash">
                                 <a href="#" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
-                                <a class="breadcrumb-item" href="#">Quản lý tài khoản</a>
-                                <span class="breadcrumb-item active">Danh sách tài khoản</span>
+                                <a class="breadcrumb-item" href="#">Quản lý khuyến mãi</a>
+                                <span class="breadcrumb-item active">Danh sách khuyến mãi</span>
                             </nav>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            <div class="row m-b-30">
+                            <div class="row m-b-10">
                                 <div class="col-lg-8">
                                     <div class="d-md-flex">
-                                        <div class="m-b-10 m-r-15">
-                                            <h5>Lọc theo quyền: </h5>
-                                            <select class="custom-select" style="min-width: 180px;">
-                                                <option value="all">Tất cả</option>
-                                                <option value="Admin">Admin</option>
-                                                <option value="Nhân Viên">Nhân viên</option>
-                                                <option value="Khách Hàng">Khách hàng</option>
-                                            </select>
-                                        </div>
                                         <div class="m-b-10">
-                                            <h5>Lọc theo trạng thái: </h5>
+                                            <h5>Lọc theo tình trạng: </h5>
                                             <select class="custom-select" style="min-width: 180px;">
                                                 <option selected value="all">Tất cả</option>
-                                                <option value="True">Đã xác thực</option>
-                                                <option value="False">Chưa xác thực</option>
+                                                <option value="Pending">Đang chờ</option>
+                                                <option value="Enable">Khả dụng</option>
+                                                <option value="Disable">Hết hạn</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 text-right">
-                                    <a href="./ThemTaiKhoan.html" class="btn btn-primary">
+                                    <a href="./ThemKhuyenMai.html" class="btn btn-primary">
                                         <i class="anticon anticon-plus-circle m-r-5"></i>
-                                        <span>Thêm tài khoản mới</span>
+                                        <span>Thêm khuyến mãi</span>
                                     </a>
+                                </div>
                             </div>
-                            <div class="table-responsive">
+                            <div class="table-responsive p-l-5 p-r-5">
                                 <table class="table table-hover e-commerce-table">
                                     <thead>
                                         <tr>
                                             <th>
-                                                <div class="checkbox">
-                                                    <input id="checkAll" type="checkbox">
-                                                    <label for="checkAll" class="m-b-0"></label>
-                                                </div>
                                             </th>
-                                            <th>ID</th>
-                                            <th>Avatar</th>
-                                            <th>Tên khách hàng</th>
-                                            <th>Email</th>
-                                            <th>Sđt</th>
-                                            <th>Giới tính</th>
+                                            <th>Mã code</th>
+                                            <th>Tên khuyến mãi</th>
+                                            <th>Tỷ lệ giảm giá</th>
+                                            <th>Áp dụng cho vé từ</th>
+                                            <th>Điểm đổi</th>
+                                            <th>Ngày áp dụng</th>
+                                            <th>Ngày hết hạn</th>
                                             <th>Tình trạng</th>
                                             <th></th>
                                         </tr>
@@ -410,217 +400,192 @@
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target=".xem-tai-khoan">
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target="#thong-tin-khuyen-mai">
                                                     <i class="anticon anticon-eye"></i>
                                                 </button>
                                             </td>
                                             <td>
-                                                #31
+                                                NGVN2011
                                             </td>
                                             <td>
-                                                <img class="img-fluid rounded" src="assets/images/others/thumb-9.jpg" style="max-width: 60px" alt="">
+                                                <h6>Khuyến mãi ngày Nhà Giáo Việt Nam</h6>
                                             </td>
-                                            <td><h6>Nguyễn Văn Hoàng Hiệp</h6></td>
-                                            <td>hoanghiep2002al@gmail.com</td>
-                                            <td>0963825623</td>
-                                            <td>Nam</td>
+                                            <td>20%</td>
+                                            <td>200.000 VND</td>
+                                            <td>2000</td>
+                                            <td>20/11/2024</td>
+                                            <td>20/12/2024</td>
                                             <td>
                                                 <div class="d-flex align-items-center">
-                                                    <div class="badge badge-success badge-dot m-r-10"></div>
-                                                    <div>Đã xác thực</div>
+                                                    <div class="badge badge-primary badge-dot m-r-10"></div>
+                                                    <div>Đang chờ</div>
                                                 </div>
                                             </td>
                                             <td class="text-right">
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target=".sua-tai-khoan">
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target="#sua-khuyen-mai">
                                                     <i class="anticon anticon-edit"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-tai-khoan">
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-khuyen-mai">
                                                     <i class="anticon anticon-delete"></i>
                                                 </button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target=".xem-tai-khoan">
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target="#thong-tin-khuyen-mai">
                                                     <i class="anticon anticon-eye"></i>
                                                 </button>
                                             </td>
                                             <td>
-                                                #32
+                                                NGVN2011
                                             </td>
                                             <td>
-                                                <img class="img-fluid rounded" src="assets/images/others/thumb-9.jpg" style="max-width: 60px" alt="">
+                                                <h6>Khuyến mãi ngày Nhà Giáo Việt Nam</h6>
                                             </td>
-                                            <td><h6>Phan Thu Hằng</h6></td>
-                                            <td>thuhang@gmail.com</td>
-                                            <td>0972635647</td>
-                                            <td>Nữ</td>
+                                            <td>20%</td>
+                                            <td>200.000 VND</td>
+                                            <td>2000</td>
+                                            <td>20/11/2024</td>
+                                            <td>20/12/2024</td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="badge badge-primary badge-dot m-r-10"></div>
+                                                    <div>Đang chờ</div>
+                                                </div>
+                                            </td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target="#sua-khuyen-mai">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-khuyen-mai">
+                                                    <i class="anticon anticon-delete"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target="#thong-tin-khuyen-mai">
+                                                    <i class="anticon anticon-eye"></i>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                NGVN2011
+                                            </td>
+                                            <td>
+                                                <h6>Khuyến mãi ngày Nhà Giáo Việt Nam</h6>
+                                            </td>
+                                            <td>20%</td>
+                                            <td>200.000 VND</td>
+                                            <td>2000</td>
+                                            <td>20/11/2024</td>
+                                            <td>20/12/2024</td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="badge badge-success badge-dot m-r-10"></div>
+                                                    <div>Khả dụng</div>
+                                                </div>
+                                            </td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target="#sua-khuyen-mai">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-khuyen-mai">
+                                                    <i class="anticon anticon-delete"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target="#thong-tin-khuyen-mai">
+                                                    <i class="anticon anticon-eye"></i>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                NGVN2011
+                                            </td>
+                                            <td>
+                                                <h6>Khuyến mãi ngày Nhà Giáo Việt Nam</h6>
+                                            </td>
+                                            <td>20%</td>
+                                            <td>200.000 VND</td>
+                                            <td>2000</td>
+                                            <td>20/11/2024</td>
+                                            <td>20/12/2024</td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="badge badge-success badge-dot m-r-10"></div>
+                                                    <div>Khả dụng</div>
+                                                </div>
+                                            </td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target="#sua-khuyen-mai">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-khuyen-mai">
+                                                    <i class="anticon anticon-delete"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target="#thong-tin-khuyen-mai">
+                                                    <i class="anticon anticon-eye"></i>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                NGVN2011
+                                            </td>
+                                            <td>
+                                                <h6>Khuyến mãi ngày Nhà Giáo Việt Nam</h6>
+                                            </td>
+                                            <td>20%</td>
+                                            <td>200.000 VND</td>
+                                            <td>2000</td>
+                                            <td>20/11/2024</td>
+                                            <td>20/12/2024</td>
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="badge badge-danger badge-dot m-r-10"></div>
-                                                    <div>Chưa xác thực</div>
+                                                    <div>Hết hạn</div>
                                                 </div>
                                             </td>
                                             <td class="text-right">
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target=".sua-tai-khoan">
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target="#sua-khuyen-mai">
                                                     <i class="anticon anticon-edit"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-tai-khoan">
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-khuyen-mai">
                                                     <i class="anticon anticon-delete"></i>
                                                 </button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target=".xem-tai-khoan">
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target="#thong-tin-khuyen-mai">
                                                     <i class="anticon anticon-eye"></i>
                                                 </button>
                                             </td>
                                             <td>
-                                                #33
+                                                NGVN2011
                                             </td>
                                             <td>
-                                                <img class="img-fluid rounded" src="assets/images/others/thumb-9.jpg" style="max-width: 60px" alt="">
+                                                <h6>Khuyến mãi ngày Nhà Giáo Việt Nam</h6>
                                             </td>
-                                            <td><h6>Nguyễn Việt Thắng</h6></td>
-                                            <td>vietthang123@gmail.com</td>
-                                            <td>0972635555</td>
-                                            <td>Nam</td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="badge badge-success badge-dot m-r-10"></div>
-                                                    <div>Đã xác thực</div>
-                                                </div>
-                                            </td>
-                                            <td class="text-right">
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target=".sua-tai-khoan">
-                                                    <i class="anticon anticon-edit"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-tai-khoan">
-                                                    <i class="anticon anticon-delete"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target=".xem-tai-khoan">
-                                                    <i class="anticon anticon-eye"></i>
-                                                </button>
-                                            </td>
-                                            <td>
-                                                #34
-                                            </td>
-                                            <td>
-                                                <img class="img-fluid rounded" src="assets/images/others/thumb-9.jpg" style="max-width: 60px" alt="">
-                                            </td>
-                                            <td><h6>Hoàng Trung Phong</h6></td>
-                                            <td>phongtl12349@gmail.com</td>
-                                            <td>0982348841</td>
-                                            <td>Nam</td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="badge badge-success badge-dot m-r-10"></div>
-                                                    <div>Đã xác thực</div>
-                                                </div>
-                                            </td>
-                                            <td class="text-right">
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target=".sua-tai-khoan">
-                                                    <i class="anticon anticon-edit"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-tai-khoan">
-                                                    <i class="anticon anticon-delete"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target=".xem-tai-khoan">
-                                                    <i class="anticon anticon-eye"></i>
-                                                </button>
-                                            </td>
-                                            <td>
-                                                #35
-                                            </td>
-                                            <td>
-                                                <img class="img-fluid rounded" src="assets/images/others/thumb-9.jpg" style="max-width: 60px" alt="">
-                                            </td>
-                                            <td><h6>Trần Việt Đức</h6></td>
-                                            <td>duc180203@gmail.com</td>
-                                            <td>0921776543</td>
-                                            <td>Nam</td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="badge badge-success badge-dot m-r-10"></div>
-                                                    <div>Đã xác thực</div>
-                                                </div>
-                                            </td>
-                                            <td class="text-right">
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target=".sua-tai-khoan">
-                                                    <i class="anticon anticon-edit"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-tai-khoan">
-                                                    <i class="anticon anticon-delete"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target=".xem-tai-khoan">
-                                                    <i class="anticon anticon-eye"></i>
-                                                </button>
-                                            </td>
-                                            <td>
-                                                #36
-                                            </td>
-                                            <td>
-                                                <img class="img-fluid rounded" src="assets/images/others/thumb-9.jpg" style="max-width: 60px" alt="">
-                                            </td>
-                                            <td><h6>Nguyễn Viết Bình</h6></td>
-                                            <td>vietbinh123@gmail.com</td>
-                                            <td>0123456789</td>
-                                            <td>Nam</td>
+                                            <td>20%</td>
+                                            <td>200.000 VND</td>
+                                            <td>2000</td>
+                                            <td>20/11/2024</td>
+                                            <td>20/12/2024</td>
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="badge badge-danger badge-dot m-r-10"></div>
-                                                    <div>Chưa xác thực</div>
+                                                    <div>Hết hạn</div>
                                                 </div>
                                             </td>
                                             <td class="text-right">
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target=".sua-tai-khoan">
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target="#sua-khuyen-mai">
                                                     <i class="anticon anticon-edit"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-tai-khoan">
-                                                    <i class="anticon anticon-delete"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target=".xem-tai-khoan">
-                                                    <i class="anticon anticon-eye"></i>
-                                                </button>
-                                            </td>
-                                            <td>
-                                                #37
-                                            </td>
-                                            <td>
-                                                <img class="img-fluid rounded" src="assets/images/others/thumb-9.jpg" style="max-width: 60px" alt="">
-                                            </td>
-                                            <td><h6>Nguyễn Thu Phương</h6></td>
-                                            <td>phuongnguyen211@gmail.com</td>
-                                            <td>0982180202</td>
-                                            <td>Nữ</td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="badge badge-success badge-dot m-r-10"></div>
-                                                    <div>Đã xác thực</div>
-                                                </div>
-                                            </td>
-                                            <td class="text-right">
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target=".sua-tai-khoan">
-                                                    <i class="anticon anticon-edit"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-tai-khoan">
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-khuyen-mai">
                                                     <i class="anticon anticon-delete"></i>
                                                 </button>
                                             </td>
@@ -632,106 +597,184 @@
                     </div>
                 </div>
                 <!-- Content Wrapper END -->
+           </div>
+           <!-- Page Container END -->
+        
 
-                <!-- Footer START -->
-                <footer class="footer">
-                    <div class="footer-content">
-                        <p class="m-b-0">Duong Cong Minh - Nguyen Thi Thu Huong</p>
-                    </div>
-                </footer>
-                <!-- Footer END -->
-
-            </div>
-            <!-- Page Container END -->
-
-            <!-- Search Start-->
-            <div class="modal modal-left fade search" id="search-drawer">
-                <div class="modal-dialog">
+            <!-- Modal thông khuyến mãi -->
+            <div class="modal fade bd-example-modal-lg " id="thong-tin-khuyen-mai" aria-modal="true">
+                <div class="modal-dialog modal-lg">
                     <div class="modal-content">
-                        <div class="modal-header justify-content-between align-items-center">
-                            <h5 class="modal-title">Tìm kiếm</h5>
+                        <div class="modal-header">
+                            <h4 class="modal-title" style="text-align:center">Thông tin khuyến mãi</h4>
                             <button type="button" class="close" data-dismiss="modal">
                                 <i class="anticon anticon-close"></i>
                             </button>
                         </div>
-                        <div class="modal-body scrollable">
-                            <div class="input-affix">
-                                <i class="prefix-icon anticon anticon-search"></i>
-                                <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                        <div class="modal-body" style="padding-bottom: 0;padding-top: 0;">
+                            <div class="table-responsive">
+                                <table class="product-info-table">
+                                    <tbody>
+                                        <tr>
+                                            <td class="font-weight-semibold">Mã khuyến mãi:</td>
+                                            <td>NGVN2011</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-semibold">Ngày tạo:</td>
+                                            <td>05/11/2024</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-semibold">Tên khuyến mãi:</td>
+                                            <td>Khuyến mãi Tết Nguyên Đán</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-semibold">Tỷ lệ giảm giá:</td>
+                                            <td>20%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-semibold">Áp dụng cho vé từ:</td>
+                                            <td>200.000 VND</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-semibold">Số lượng:</td>
+                                            <td>100</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-semibold">Điểm đổi:</td>
+                                            <td>2000</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-semibold">Thời gian áp dụng:</td>
+                                            <td>1 Tháng</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-semibold">Ngày áp dụng:</td>
+                                            <td>20/11/2024</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-semibold">Ngày hết hạn:</td>
+                                            <td>20/12/2024</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-semibold">Mô tả:</td>
+                                            <td>Để tri ân các thầy cô và người hâm mộ điện ảnh, rạp chiếu phim chúng tôi xin dành tặng bạn ưu đãi giảm 20% trên giá vé khi nhập mã khuyến mãi. Đừng bỏ lỡ cơ hội thưởng thức những bộ phim yêu thích cùng người thân và bạn bè nhé!</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-semibold">Tình trạng:</td>
+                                            <td>
+                                                <span class="badge badge-pill badge-primary">Đang chờ</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table> 
                             </div>
-                            <div class="m-t-30">
-                                <h5 class="m-b-20">Sản phẩm</h5> 
-                                <div class="d-flex m-b-30">
-                                    <div class="avatar avatar-image">
-                                        <img src="assets/images/others/img-1.jpg" alt="">
-                                    </div>
-                                    <div class="m-l-15">
-                                        <a href="javascript:void(0);" class="text-dark m-b-0 font-weight-semibold">Máy ảnh Ricoh GR III Diary Edition</a>
-                                        <p class="m-b-0 text-muted font-size-13">
-                                            <span class="m-l-5">Trong máy ảnh Ricoh</span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="d-flex m-b-30">
-                                    <div class="avatar avatar-image">
-                                        <img src="assets/images/others/img-1.jpg" alt="">
-                                    </div>
-                                    <div class="m-l-15">
-                                        <a href="javascript:void(0);" class="text-dark m-b-0 font-weight-semibold">Máy ảnh Canon EOS R1 Body</a>
-                                        <p class="m-b-0 text-muted font-size-13">
-                                            <span class="m-l-5">Trong máy ảnh Canon</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-t-30">
-                                <h5 class="m-b-20">Thành viên</h5>
-                                <div class="d-flex m-b-30">
-                                    <div class="avatar avatar-image">
-                                        <img src="assets/images/avatars/thumb-1.jpg" alt="">
-                                    </div>
-                                    <div class="m-l-15">
-                                        <a href="javascript:void(0);" class="text-dark m-b-0 font-weight-semibold">Nguyễn Thị Thu Hường</a>
-                                        <p class="m-b-0 text-muted font-size-13">UI/UX Designer</p>
-                                    </div>
-                                </div>
-                                <div class="d-flex m-b-30">
-                                    <div class="avatar avatar-image">
-                                        <img src="assets/images/avatars/thumb-2.jpg" alt="">
-                                    </div>
-                                    <div class="m-l-15">
-                                        <a href="javascript:void(0);" class="text-dark m-b-0 font-weight-semibold">Nguyễn Hoàng Hiệp</a>
-                                        <p class="m-b-0 text-muted font-size-13">Software Engineer</p>
-                                    </div>
-                                </div>
-                                <div class="d-flex m-b-30">
-                                    <div class="avatar avatar-image">
-                                        <img src="assets/images/avatars/thumb-3.jpg" alt="">
-                                    </div>
-                                    <div class="m-l-15">
-                                        <a href="javascript:void(0);" class="text-dark m-b-0 font-weight-semibold">Hoàng Trung Phong</a>
-                                        <p class="m-b-0 text-muted font-size-13">Data Analyst</p>
-                                    </div>
-                                </div>
-                            </div>   
-                            <div class="m-t-30">
-                                <h5 class="m-b-20">Bài viết</h5> 
-                                <div class="d-flex m-b-30">
-                                    <div class="m-l-15">
-                                        <a href="javascript:void(0);" class="text-dark m-b-0 font-weight-semibold">So Sánh DJI Osmo Action 5 Pro Vs GoPro Hero 13 Black: Liệu DJI Có Soán Ngôi GoPro?</a>
-                                        <p class="m-b-0 text-muted font-size-13">
-                                            <i class="anticon anticon-clock-circle"></i>
-                                            <span class="m-l-5">25/08/2024</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>    
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Thoát</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Search End-->
-
+            <!-- Modal xóa khuyến mãi -->
+            <div class="modal fade" id="xoa-khuyen-mai">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Bạn chắc chắn muốn xóa khuyến mãi này?</h4>
+                            <button type="button" class="close" data-dismiss="modal">
+                                <i class="anticon anticon-close"></i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                                <div class="form-group">
+                                    <h4 class="m-b-0">Khuyến mãi ngày Nhà Giáo Việt Nam</h4>
+                                    <p class="text-muted m-b-0">Mã khuyến mãi: NGVN2011</p>
+                                </div>
+                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary " data-dismiss="modal">Thoát</button>
+                            <button type="button" class="btn btn-danger  delete-link" data-dismiss="modal" onclick="showToastDeleteMessage()">Xóa</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal sửa khuyến mãi -->
+            <div class="modal fade bd-example-modal-lg" id="sua-khuyen-mai">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Sửa thông tin khuyến mãi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="myForm">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Mã khuyến mãi</label>
+                                        <input type="name" class="form-control" placeholder="Nhập mã" value="NGVN2011">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Tên khuyến mãi</label>
+                                        <input type="name" class="form-control" placeholder="Nhập tên khuyến mãi" value="Khuyến mãi Tết Nguyên Đán">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label>Tỉ lệ giảm giá</label>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" placeholder="Tỉ lệ giảm" value="20">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Áp dụng cho vé từ</label>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" placeholder="Số tiền" value="200.000 ">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">VND</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Điểm đổi</label>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" placeholder="Điểm đổi" value="2000">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">Điểm</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Ngày áp dụng</label>
+                                        <input type="date" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Ngày hết hạn</label>
+                                        <input type="date" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Mô tả</label>
+                                    <textarea type="text" class="form-control" rows="5" placeholder="Nhập mô tả mã giảm giá này ...">Để tri ân các thầy cô và người hâm mộ điện ảnh, rạp chiếu phim chúng tôi xin dành tặng bạn ưu đãi giảm 20% trên giá vé khi nhập mã khuyến mãi. Đừng bỏ lỡ cơ hội thưởng thức những bộ phim yêu thích cùng người thân và bạn bè nhé!</textarea>
+                                </div>
+                                <div class="modal-footer p-t-20">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Thoát</button>
+                                    <button id="notification-toast-btn" type="submit" class="btn btn-success">
+                                        <i class="anticon anticon-save"></i>
+                                        <span>Lưu thay đổi</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Quick View START -->
             <div class="modal modal-right fade quick-view" id="quick-view">
                 <div class="modal-dialog">
@@ -792,177 +835,7 @@
         </div>
     </div>
 
-     <!-- Modal xem thông tin tài khoản -->
-    <div class="modal fade xem-tai-khoan">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title h4">Thông tin tài khoản</h5>
-                    <button type="button" class="close" data-dismiss="modal">
-                        <i class="anticon anticon-close"></i>
-                    </button>
-                </div>
-                <div class="modal-body" style="padding-bottom: 0;padding-top: 0;">
-                    <div class="table-responsive">
-                        <table class="product-info-table m-t-20">
-                            <tbody>
-                                <tr>
-                                    <td>Email:</td>
-                                    <td>hoanghiep2002al@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>Họ tên:</td>
-                                    <td>Nguyễn Văn Hoàng Hiệp</td>
-                                </tr>
-                                <tr>
-                                    <td>Số điện thoại:</td>
-                                    <td>0963825623</td>
-                                </tr>
-                                <tr>
-                                    <td>Địa chỉ:</td>
-                                    <td>Ngõ 63 Đại Mỗ - Nam Từ Liêm - HN</td>
-                                </tr>
-                                <tr>
-                                    <td>Giói tính:</td>
-                                    <td>Nam</td>
-                                </tr>
-                                <tr>
-                                    <td>Avatar:</td>
-                                    <td><img class="img-fluid rounded" src="assets/images/others/thumb-9.jpg" style="max-width: 60px" alt=""></td>
-                                </tr>
-                                <tr>
-                                    <td>Vai trò:</td>
-                                    <td><span class="badge badge-success">Khách hàng</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Tình trạng tài khoản:</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="badge badge-success badge-dot m-r-10"></div>
-                                            <div>Đã xác thực</div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table> 
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Thoát</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal sửa tài khoản -->
-    <div class="modal fade sua-tai-khoan">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title h4">Sửa tài khoản</h5>
-                    <button type="button" class="close" data-dismiss="modal">
-                        <i class="anticon anticon-close"></i>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="myForm">
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="font-weight-semibold col-sm-2 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="email" value="hoanghiep2002al@gmail.com" class="form-control" id="inputEmail3" placeholder="Nhập email...">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="font-weight-semibold col-sm-2 col-form-label">Tên</label>
-                            <div class="col-sm-10">
-                                <input type="fullname" value="Nguyễn Văn Hoàng Hiệp" class="form-control" id="inputEmail3" placeholder="Nhập tên...">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                        <label for="inputEmail3" class="font-weight-semibold col-sm-2 col-form-label">Số điện thoại</label>
-                            <div class="col-sm-10">
-                                <input type="phone" value="0963825623" class="form-control" placeholder="Số điện thoại...">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputPassword3" class="font-weight-semibold col-sm-2 col-form-label">Mật khẩu</label>
-                            <div class="col-sm-10">
-                                <input value="hiep1802@" type="text" class="form-control" id="inputPassword3" placeholder="">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputPassword3" class="font-weight-semibold col-sm-2 col-form-label">Địa chỉ</label>
-                            <div class="col-sm-10">
-                                <input value="Ngõ 63 Đại Mỗ - Nam Từ Liêm - HN" type="text" class="form-control"  placeholder="">
-                            </div>
-                        </div>
-                        <div class="form-row m-b-20">
-                            <label for="inputPassword3" class="font-weight-semibold col-sm-2 col-form-label">Ảnh đại diện</label>
-                                <div class="img-fluid rounded">
-                                    <img id="previewImage" style="width: 80px;height: 80px;border-radius: 5px;" src="../Admin/assets/images/others/thumb-9.jpg" alt="">
-                                </div>
-                                <input type="file" id="imageInput" accept="image/*" style="display: none;" onchange="previewNewImage(event)">
-                                <div style="height: 40px; cursor: pointer; " class="btn btn-primary btn-tone m-r-5 m-l-20" onclick="changeImage()" style="cursor: pointer;">Thay đổi avatar</div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="font-weight-semibold col-form-label col-sm-2 pt-0">Giới tính:</label>
-                            <div class="col-sm-10">
-                                <div class="radio m-r-10">
-                                    <input id="radio1" name="radioDemo" type="radio" checked="">
-                                    <label for="radio1">Nam</label>
-                                </div>
-                                <div class="radio">
-                                    <input id="radio2" name="radioDemo" type="radio">
-                                    <label for="radio2">Nữ</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="font-weight-semibold col-sm-2 col-form-label">Vai trò:</label>
-                            <div class="col-sm-10">
-                                <select class="form-control">
-                                    <option value="Admin">Admin</option>
-                                    <option checked="" value="Khách hàng">Khách hàng</option>
-                                    <option value="Nhân viên">Nhân viên</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Thoát</button>
-                            <button id="notification-toast-btn" type="submit" class="btn btn-success">
-                                <i class="anticon anticon-save"></i>
-                                <span>Lưu thay đổi</span>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal xóa tài khoản -->
-    <div class="modal fade" id="xoa-tai-khoan">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title h4">Bạn chắc chắn muốn xóa tài khoản này?</h5>
-                    <button type="button" class="close" data-dismiss="modal">
-                        <i class="anticon anticon-close"></i>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <h4 class="m-b-0">Tên khách hàng: Nguyễn Văn Hoàng Hiệp</h4>
-                        <p class="text-muted m-b-0">Email: hoanghiep2002al@gmail.com</p>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Thoát</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="showToastDeleteMessage()">Xóa</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="notification-toast top-right" id="notification-toast"></div>
-
+    
     <!-- Core Vendors JS -->
     <script src="assets/js/vendors.min.js"></script>
 
@@ -973,81 +846,66 @@
 
     <!-- Core JS -->
     <script src="assets/js/app.min.js"></script>
-    <script>
-        function changeImage() {
-            document.getElementById("imageInput").click();
-        }
+    <script>   
+        function showToast() {
+            var toastHTML = `<div class="toast fade hide" data-delay="5000">
+                <div class="toast-header">
+                    <i class="anticon anticon-info-circle text-primary m-r-5"></i>
+                    <strong class="mr-auto">Thông báo</strong>
+                    <button type="button" class="ml-2 close" data-dismiss="toast" aria-label="Tắt">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="toast-body">
+                    Bạn đã sửa khuyến mãi thành công!
+                </div>
+            </div>`
         
-        function previewNewImage(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById("previewImage").src = e.target.result;
-                };
-                reader.readAsDataURL(file);
-            }
+            $('#notification-toast').append(toastHTML)
+            $('#notification-toast .toast').toast('show');
+            setTimeout(function(){ 
+                $('#notification-toast .toast:first-child').remove();
+            }, 5000);
         }
+
+        function showToastDeleteMessage() {
+            var toastHTML = `<div class="toast fade hide" data-delay="5000">
+                <div class="toast-header">
+                    <i class="anticon anticon-info-circle text-primary m-r-5"></i>
+                    <strong class="mr-auto">Thông báo</strong>
+                    <button type="button" class="ml-2 close" data-dismiss="toast" aria-label="Tắt">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="toast-body">
+                    Xóa mã khuyến mãi thành công!
+                </div>
+            </div>`
+        
+            $('#notification-toast').append(toastHTML)
+            $('#notification-toast .toast').toast('show');
+            setTimeout(function(){ 
+                $('#notification-toast .toast:first-child').remove();
+            }, 5000);
+        }
+
+        // Xử lý sự kiện submit
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+        // Lưu thông tin về việc submit thành công vào localStorage
+        localStorage.setItem("showToastAfterReload", "true");
+        });
+
+        // Kiểm tra khi trang được tải lại
+        window.addEventListener("load", function() {
+        if (localStorage.getItem("showToastAfterReload") === "true") {
+            // Hiển thị toast
+            showToast();
+            // Xóa thông tin sau khi hiển thị để không hiện lại lần sau
+            localStorage.removeItem("showToastAfterReload");
+        }
+        });
     </script>
-<script>   
-    function showToast() {
-        var toastHTML = `<div class="toast fade hide" data-delay="5000">
-            <div class="toast-header">
-                <i class="anticon anticon-info-circle text-primary m-r-5"></i>
-                <strong class="mr-auto">Thông báo</strong>
-                <button type="button" class="ml-2 close" data-dismiss="toast" aria-label="Tắt">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="toast-body">
-                Bạn đã sửa tài khoản thành công!
-            </div>
-        </div>`
-    
-        $('#notification-toast').append(toastHTML)
-        $('#notification-toast .toast').toast('show');
-        setTimeout(function(){ 
-            $('#notification-toast .toast:first-child').remove();
-        }, 5000);
-    }
 
-    function showToastDeleteMessage() {
-        var toastHTML = `<div class="toast fade hide" data-delay="5000">
-            <div class="toast-header">
-                <i class="anticon anticon-info-circle text-primary m-r-5"></i>
-                <strong class="mr-auto">Thông báo</strong>
-                <button type="button" class="ml-2 close" data-dismiss="toast" aria-label="Tắt">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="toast-body">
-                Xóa tài khoản thành công!
-            </div>
-        </div>`
-    
-        $('#notification-toast').append(toastHTML)
-        $('#notification-toast .toast').toast('show');
-        setTimeout(function(){ 
-            $('#notification-toast .toast:first-child').remove();
-        }, 5000);
-    }
-
-    // Xử lý sự kiện submit
-    document.getElementById("myForm").addEventListener("submit", function(event) {
-    // Lưu thông tin về việc submit thành công vào localStorage
-    localStorage.setItem("showToastAfterReload", "true");
-    });
-
-    // Kiểm tra khi trang được tải lại
-    window.addEventListener("load", function() {
-    if (localStorage.getItem("showToastAfterReload") === "true") {
-        // Hiển thị toast
-        showToast();
-        // Xóa thông tin sau khi hiển thị để không hiện lại lần sau
-        localStorage.removeItem("showToastAfterReload");
-    }
-    });
-</script>
 </body>
 
 </html>

@@ -4,30 +4,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Thêm sản phẩm</title>
+    <title>Phân quyền tài khoản</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/images/logo/favicon.png">
 
     <!-- page css -->
     <link href="assets/vendors/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendors/select2/select2.css" rel="stylesheet">
 
     <!-- Core css -->
     <link href="assets/css/app.min.css" rel="stylesheet">
-    <style>
-        /* Căn chỉnh hình ảnh theo hàng ngang */
-        #imagePreview {
-          display: flex;
-          flex-wrap: wrap;
-        }
-        #imagePreview img {
-          margin: 5px;
-          width: 100px;
-          height: 100px;
-          object-fit: cover; /* Đảm bảo ảnh vừa khít vùng hiển thị */
-        }
-      </style>
+
 </head>
 
 <body>
@@ -184,16 +171,15 @@
                                 </span>
                             </a>
                             <ul class="dropdown-menu">
-                                  
                                 <li>
                                     <a href="index.html">Thống kê</a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown open">
                             <a class="dropdown-toggle" href="javascript:void(0);">
                                 <span class="icon-holder">
-                                    <i class="anticon anticon-appstore"></i>
+                                    <i class="anticon anticon-team"></i>
                                 </span>
                                 <span class="title">Quản lý tài khoản</span>
                                 <span class="arrow">
@@ -204,59 +190,49 @@
                                 <li>
                                     <a href="DanhSachTaiKhoan.html">Danh sách tài khoản</a>
                                 </li>
+                                <li class="active">
+                                    <a href="PhanQuyenTaiKhoan.html">Phân quyền tài khoản</a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="dropdown-toggle" href="javascript:void(0);">
                                 <span class="icon-holder">
-									<i class="anticon anticon-build"></i>
+									<i class="anticon anticon-folder-open"></i>
 								</span>
-                                <span class="title">Quản lý danh mục</span>
+                                <span class="title">Quản lý phim</span>
                                 <span class="arrow">
 									<i class="arrow-icon"></i>
 								</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="DanhMucSanPham.html">Danh mục sản phẩm</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown open">
-                            <a class="dropdown-toggle" href="javascript:void(0);">
-                                <span class="icon-holder">
-                                    <i class="anticon anticon-hdd"></i>
-                                </span>
-                                <span class="title">Quản lý sản phẩm</span>
-                                <span class="arrow">
-                                    <i class="arrow-icon"></i>
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="active">
-                                    <a href="ThemSanPham.html">Thêm sản phẩm mới</a>
+                                    <a href="ThemPhimMoi.html">Thêm phim mới</a>
                                 </li>
                                 <li>
-                                    <a href="SanPham.html">Danh sách sản phẩm</a>
+                                    <a href="DanhSachPhim.html">Danh sách phim</a>
+                                </li>
+                                <li>
+                                    <a href="TheLoai.html">Thể loại</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="dropdown-toggle" href="javascript:void(0);">
                                 <span class="icon-holder">
-                                    <i class="anticon anticon-form"></i>
+                                    <i class="anticon anticon-hdd"></i>
                                 </span>
-                                <span class="title">Quản lý bài viết</span>
+                                <span class="title">Quản lý suất chiếu</span>
                                 <span class="arrow">
                                     <i class="arrow-icon"></i>
                                 </span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="ThemBaiViet.html">Thêm bài viết mới</a>
+                                    <a href="SuatChieu.html">Suất chiếu</a>
                                 </li>
                                 <li>
-                                    <a href="BaiViet.html">Danh sách bài viết</a>
+                                    <a href="GioChieu.html">Giờ chiếu</a>
                                 </li>
                             </ul>
                         </li>
@@ -265,18 +241,103 @@
                                 <span class="icon-holder">
                                     <i class="anticon anticon-table"></i>
                                 </span>
-                                <span class="title">Quản lý đơn hàng</span>
+                                <span class="title">Quản lý phòng chiếu</span>
                                 <span class="arrow">
                                     <i class="arrow-icon"></i>
                                 </span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="DonHang.html">Danh sách đơn hàng</a>
+                                    <a href="PhongChieu.html">Danh sách phòng chiếu</a>
                                 </li>
                             </ul>
                         </li>
-                         
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-gift"></i>
+                                </span>
+                                <span class="title">Quản lý combo</span>
+                                <span class="arrow">
+                                    <i class="arrow-icon"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="Combo.html">Danh sách combo</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-read"></i>
+                                </span>
+                                <span class="title">Quản lý tin tức</span>
+                                <span class="arrow">
+                                    <i class="arrow-icon"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="DanhSachTinTuc.html">Danh sách tin tức</a>
+                                </li>
+                                <li>
+                                    <a href="ThemTinTuc.html">Thêm tin tức mới</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-dollar"></i>
+                                </span>
+                                <span class="title">Quản lý khuyến mãi</span>
+                                <span class="arrow">
+                                    <i class="arrow-icon"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="DanhSachKhuyenMai.html">Danh sách khuyến mãi</a>
+                                </li>
+                                <li>
+                                    <a href="ThemKhuyenMai.html">Thêm khuyến mãi mới</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-book"></i>
+                                </span>
+                                <span class="title">Quản lý vé</span>
+                                <span class="arrow">
+                                    <i class="arrow-icon"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="VeXemPhim.html">Danh sách vé</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-message"></i>
+                                </span>
+                                <span class="title">Phản hổi khách hàng</span>
+                                <span class="arrow">
+                                    <i class="arrow-icon"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="PhanHoiKhachHang.html">Chat với khách hàng</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -291,185 +352,195 @@
                         <div class="header-sub-title">
                             <nav class="breadcrumb breadcrumb-dash">
                                 <a href="#" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
-                                <a class="breadcrumb-item" href="#">Quản lý sản phẩm</a>
-                                <span class="breadcrumb-item active">Thêm sản phẩm mới</span>
+                                <a class="breadcrumb-item" href="#">Quản lý tài khoản</a>
+                                <span class="breadcrumb-item active">Phân quyền tài khoản</span>
                             </nav>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            <form>
-                                <div class="page-header no-gutters has-tab">
-                                    <div class="d-md-flex m-b-15 align-items-center justify-content-between">
-                                        <div class="media align-items-center m-b-15">
-                                            <div class="avatar avatar-image rounded" style="height: 100px; width: 100px">
-                                                <img src="assets/images/others/themsp.png" alt="">
-                                            </div>
-                                            <div class="m-l-15">
-                                                <h4 class="m-b-0"></h4>
-                                                <p class="text-muted m-b-0"></p>
-                                            </div>
+                            <div class="row m-b-30">
+                                <div class="col-lg-8">
+                                    <div class="d-md-flex">
+                                        <div class="m-b-10 m-r-15">
+                                            <h5>Lọc theo quyền: </h5>
+                                            <select class="custom-select" style="min-width: 180px;">
+                                                <option value="all">Tất cả</option>
+                                                <option value="Admin">Admin</option>
+                                                <option value="Nhân Viên">Nhân viên</option>
+                                                <option value="Khách Hàng">Khách hàng</option>
+                                            </select>
                                         </div>
-                                        <div class="m-b-15">
-                                            <button class="btn btn-primary">
-                                                <i class="anticon anticon-save"></i>
-                                                <span>Xác nhận thêm sản phẩm mới</span>
-                                            </button>
+                                        <div class="m-b-10">
+                                            <h5>Lọc theo trạng thái: </h5>
+                                            <select class="custom-select" style="min-width: 180px;">
+                                                <option selected value="all">Tất cả</option>
+                                                <option value="Enable">Enable</option>
+                                                <option value="Disable">Disable</option>
+                                            </select>
                                         </div>
                                     </div>
-                                    <ul class="nav nav-tabs" >
-                                        <li class="nav-item">
-                                            <a class="nav-link active" data-toggle="tab" href="#product-edit-basic">Thông tin</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#product-edit-option">Thông số</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#product-edit-description">Mô tả</a>
-                                        </li>
-                                    </ul>
                                 </div>
-                                <div class="tab-content m-t-15">
-                                    <div class="tab-pane fade show active" id="product-edit-basic" >
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="form-group">
-                                                    <label class="font-weight-semibold" for="productName">Tên sản phảm</label>
-                                                    <input type="text" class="form-control" id="productName" placeholder="Nhập tên sản phẩm..." >
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="font-weight-semibold">Hình ảnh sản phẩm (Chọn tối đa 5 hình)</label>
-                                                    <!-- Thẻ input file cho phép chọn tối đa 5 ảnh -->
-                                                    <form>
-                                                    <input type="file" id="fileInput" accept="image/*" multiple>
-                                                    </form>
-
-                                                    <!-- Vùng hiển thị các hình ảnh đã chọn -->
-                                                    <div id="imagePreview"></div>   
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="font-weight-semibold" for="productPrice">Giá bán</label>
-                                                    <input type="text" class="form-control" id="productPrice" placeholder="Nhập giá bán...">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="font-weight-semibold" for="productCategory">Danh mục sản phẩm</label>
-                                                    <select class="custom-select" id="productCategory">
-                                                        <option value="cloths">Máy ảnh</option>
-                                                        <option value="homeDecoration">Máy quay</option>
-                                                        <option value="eletronic">Ống kính máy ảnh</option>
-                                                        <option value="jewellery">Phụ kiện máy ảnh</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="font-weight-semibold" for="productBrand">Thương hiệu</label>
-                                                    <input type="text" class="form-control" id="productBrand" placeholder="Nhập thương hiệu...">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="font-weight-semibold" for="productStatus">Tình trạng</label>
-                                                    <select class="custom-select" id="productStatus">
-                                                        <option value="inStock" selected>Còn Hàng</option>
-                                                        <option value="outOfStock">Hết Hàng</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="product-edit-option">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="form-group">
-                                                    <label class="font-weight-semibold" for="productColors">Màu sắc</label>
-                                                    <select class="select2" id="productColors" multiple="multiple">
-                                                        <option value="db" >Đen</option>
-                                                        <option value="g" >Trắng</option>
-                                                        <option value="gb" >Bạc</option>
-                                                        <option value="u" >Đỏ</option>
-                                                        <option value="xl" >Hồng</option>
-                                                        <option value="l" >Xanh lá</option>
-                                                        <option value="xdt" >Xanh da trời</option>
-                                                        <option value="v" >Vàng</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="font-weight-semibold" for="hinhAnh">Hình ảnh</label>
-                                                    <select class="select2" id="hinhAnh" multiple="multiple">
-                                                        <option value="db" >Ngàm ống kính:Canon RF</option>
-                                                        <option value="db1" >Loại cảm biến:APS-C</option>
-                                                        <option value="db2" >Độ phân giải: 24.2 Megapixel</option>
-                                                        <option value="db3" >Tỷ lệ Crop:1.6x</option>
-                                                        <option value="db4" >Chế độ chống rung ảnh:Không có</option>
-                                                        <option value="db5">Tỉ lệ ảnh:3:2</option>
-                                                        <option value="db6" >Định dạng ảnh:C-RAW, HEIF, JPEG, RAW</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="font-weight-semibold" for="4323">Chế độ quay video</label>
-                                                    <select class="select2" id="4323" multiple="multiple">
-                                                        <option value="db" >H.264/H.265/MPEG-4</option>
-                                                        <option value="db1" >UHD 4K (3840 x 2160) ở 23.98/25/29.97 khung hình/giây</option>
-                                                        <option value="db2" >1920 x 1080 ở 23.98/25/29.97/50/59.94/100/120 khung hình/giây</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="font-weight-semibold" for="5434">Màn hình</label>
-                                                    <select class="select2" id="5434" multiple="multiple">
-                                                        <option value="db" >Kích thước màn hình	3"</option>
-                                                        <option value="db1" >Màn hình LCD cảm ứng khớp nối</option>
-                                                        <option value="db2" >1,062,000 điểm ảnh</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="font-weight-semibold" for="5234">Lưu trữ và kết nối</label>
-                                                    <select class="select2" id="5234" multiple="multiple">
-                                                        <option value="db">Single Slot: SD/SDHC/SDXC</option>
-                                                        <option value="db1">Micro-HDMI, 3.5 mm TRS Stereo Microphone, USB-C</option>
-                                                        <option value="db2">Wifi, Bluetooth</option>
-                                                        <option value="db3">GPS Không có</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="font-weight-semibold" for="5234">Thông số vật lý</label>
-                                                    <select class="select2" id="5234" multiple="multiple">
-                                                        <option value="db">Loại pin: LP-E17 Lithium Polymer</option>
-                                                        <option value="db1">Kích thước (W x H x D)	116,3 x 85,5 x 68,8 mm</option>
-                                                        <option value="db2">Trọng lượng 328 g (Chỉ thân máy)</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="font-weight-semibold" for="productFit">Xuất xứ</label>
-                                                    <select class="custom-select" id="productFit">
-                                                        <option value="regular">Việt Nam</option>
-                                                        <option value="skinny" >Đài Loan</option>
-                                                        <option value="slim">Trung Quốc</option>
-                                                        <option value="123">Nhật Bản</option>
-                                                        <option value="141">Mỹ</option>
-                                                        <option value="54">Pháp</option>
-                                                        <option value="65">Đức</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="font-weight-semibold" for="productShip">Bảo hành</label>
-                                                    <select class="custom-select" id="productShip">
-                                                        <option value="columbia">6 Tháng</option>
-                                                        <option value="brazil">12 Tháng</option>
-                                                        <option value="chile">24 Tháng</option>
-                                                        <option value="argentina">36 Tháng</option>
-                                                        <option value="argentina">48 Tháng</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="product-edit-description">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div id="productDescription">
-                                                    <p>Nhập mô tả</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                            </form>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover e-commerce-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Avatar</th>
+                                            <th>Tên khách hàng</th>
+                                            <th>Email</th>
+                                            <th>Vai trò</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                #31
+                                            </td>
+                                            <td>
+                                                <img class="img-fluid rounded" src="assets/images/others/thumb-9.jpg" style="max-width: 60px" alt="">
+                                            </td>
+                                            <td><h6>Nguyễn Văn Hoàng Hiệp</h6></td>
+                                            <td>hoanghiep2002al@gmail.com</td>
+                                            <td><h4><span class="badge badge-danger">Admin</span></h4></td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target=".xem-tai-khoan">
+                                                    <i class="anticon anticon-eye"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target=".sua-tai-khoan">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            
+                                            <td>
+                                                #32
+                                            </td>
+                                            <td>
+                                                <img class="img-fluid rounded" src="assets/images/others/thumb-9.jpg" style="max-width: 60px" alt="">
+                                            </td>
+                                            <td><h6>Phan Thu Hằng</h6></td>
+                                            <td>thuhang@gmail.com</td>
+                                            <td><h4><span class="badge badge-primary">Nhân Viên</span></h4></td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target=".xem-tai-khoan">
+                                                    <i class="anticon anticon-eye"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target=".sua-tai-khoan">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            
+                                            <td>
+                                                #33
+                                            </td>
+                                            <td>
+                                                <img class="img-fluid rounded" src="assets/images/others/thumb-9.jpg" style="max-width: 60px" alt="">
+                                            </td>
+                                            <td><h6>Nguyễn Việt Thắng</h6></td>
+                                            <td>vietthang123@gmail.com</td>
+                                            <td><h4><span class="badge badge-success">Khách Hàng</span></h4></td>
+                                            
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target=".xem-tai-khoan">
+                                                    <i class="anticon anticon-eye"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target=".sua-tai-khoan">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            
+                                            <td>
+                                                #34
+                                            </td>
+                                            <td>
+                                                <img class="img-fluid rounded" src="assets/images/others/thumb-9.jpg" style="max-width: 60px" alt="">
+                                            </td>
+                                            <td><h6>Hoàng Trung Phong</h6></td>
+                                            <td>phongtl12349@gmail.com</td>
+                                            <td><h4><span class="badge badge-success">Khách Hàng</span></h4></td>
+                                            
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target=".xem-tai-khoan">
+                                                    <i class="anticon anticon-eye"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target=".sua-tai-khoan">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            
+                                            <td>
+                                                #35
+                                            </td>
+                                            <td>
+                                                <img class="img-fluid rounded" src="assets/images/others/thumb-9.jpg" style="max-width: 60px" alt="">
+                                            </td>
+                                            <td><h6>Trần Việt Đức</h6></td>
+                                            <td>duc180203@gmail.com</td>
+                                            <td><h4><span class="badge badge-primary">Nhân Viên</span></h4></td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target=".xem-tai-khoan">
+                                                    <i class="anticon anticon-eye"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target=".sua-tai-khoan">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            
+                                            <td>
+                                                #36
+                                            </td>
+                                            <td>
+                                                <img class="img-fluid rounded" src="assets/images/others/thumb-9.jpg" style="max-width: 60px" alt="">
+                                            </td>
+                                            <td><h6>Nguyễn Viết Bình</h6></td>
+                                            <td>vietbinh123@gmail.com</td>
+                                            <td><h4><span class="badge badge-success">Khách Hàng</span></h4></td>
+                                            
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded"  data-toggle="modal" data-target=".xem-tai-khoan">
+                                                    <i class="anticon anticon-eye"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded " data-toggle="modal" data-target=".sua-tai-khoan">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            
+                                            <td>
+                                                #37
+                                            </td>
+                                            <td>
+                                                <img class="img-fluid rounded" src="assets/images/others/thumb-9.jpg" style="max-width: 60px" alt="">
+                                            </td>
+                                            <td><h6>Nguyễn Thu Phương</h6></td>
+                                            <td>phuongnguyen211@gmail.com</td>
+                                            <td><h4><span class="badge badge-primary">Nhân Viên</span></h4></td>
+                                            
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded pull-right"  data-toggle="modal" data-target=".xem-tai-khoan">
+                                                    <i class="anticon anticon-eye"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-icon btn-hover btn-sm btn-rounded " data-toggle="modal" data-target=".sua-tai-khoan">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -478,7 +549,7 @@
                 <!-- Footer START -->
                 <footer class="footer">
                     <div class="footer-content">
-                        <p class="m-b-0">Duong Cong Minh - Nguyen Thi Thu Huong</p>
+                        <p class="m-b-0">Panda Cinemas - Hiep - Phong - Thang - Hang</p>
                     </div>
                 </footer>
                 <!-- Footer END -->
@@ -634,43 +705,99 @@
         </div>
     </div>
 
-    <script>
-        const fileInput = document.getElementById('fileInput');
-        const imagePreview = document.getElementById('imagePreview');
-      
-        fileInput.addEventListener('change', function (event) {
-          const files = event.target.files;
-          
-          // Kiểm tra nếu người dùng chọn nhiều hơn 5 file
-          if (files.length > 5) {
-            alert('Bạn chỉ được chọn tối đa 5 hình ảnh!');
-            fileInput.value = ''; // Xóa lựa chọn file
-            imagePreview.innerHTML = ''; // Xóa ảnh hiện tại (nếu có)
-            return;
-          }
-      
-          // Xóa các ảnh đã hiển thị trước đó
-          imagePreview.innerHTML = '';
-      
-          // Duyệt qua tất cả các file (tối đa 5 file)
-          Array.from(files).forEach(file => {
-            if (file) {
-              const reader = new FileReader();
-      
-              reader.onload = function (e) {
-                // Tạo một phần tử img để hiển thị ảnh
-                const img = document.createElement('img');
-                img.src = e.target.result;
-                
-                // Thêm ảnh vào vùng hiển thị
-                imagePreview.appendChild(img);
-              };
-      
-              reader.readAsDataURL(file); // Đọc file dưới dạng URL
-            }
-          });
-        });
-      </script>
+     <!-- Modal xem thông tin tài khoản -->
+     <div class="modal fade xem-tai-khoan">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title h4">Thông tin tài khoản</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="anticon anticon-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body" style="padding-bottom: 0;padding-top: 0;">
+                    <div class="table-responsive">
+                        <table class="product-info-table m-t-20">
+                            <tbody>
+                                <tr>
+                                    <td>Email:</td>
+                                    <td>hoanghiep2002al@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td>Họ tên:</td>
+                                    <td>Nguyễn Văn Hoàng Hiệp</td>
+                                </tr>
+                                <tr>
+                                    <td>Số điện thoại:</td>
+                                    <td>0963825623</td>
+                                </tr>
+                                <tr>
+                                    <td>Địa chỉ:</td>
+                                    <td>Ngõ 63 Đại Mỗ - Nam Từ Liêm - HN</td>
+                                </tr>
+                                <tr>
+                                    <td>Giói tính:</td>
+                                    <td>Nam</td>
+                                </tr>
+                                <tr>
+                                    <td>Avatar:</td>
+                                    <td><img class="img-fluid rounded" src="assets/images/others/thumb-9.jpg" style="max-width: 60px" alt=""></td>
+                                </tr>
+                                <tr>
+                                    <td>Vai trò:</td>
+                                    <td><span class="badge badge-success">Khách hàng</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Tình trạng tài khoản:</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="badge badge-success badge-dot m-r-10"></div>
+                                            <div>Enable</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table> 
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Thoát</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal sửa tài khoản -->
+    <div class="modal fade sua-tai-khoan">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title h4">Thay đổi quyền</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="anticon anticon-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="inputState" class="col-sm-2 col-form-label" >Chọn vai trò</label>
+                            <div class="col-sm-10">
+                                <select id="inputState" class="col-sm-3 form-control">
+                                    <option selected value="Admin">Admin</option>
+                                    <option value="Nhân Viên">Nhân Viên</option>
+                                    <option value="Khách Hàng">Khách Hàng</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Thoát</button>
+                    <button type="button" class="btn btn-primary">Lưu thay đổi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     
     <!-- Core Vendors JS -->
     <script src="assets/js/vendors.min.js"></script>
@@ -679,20 +806,9 @@
     <script src="assets/vendors/datatables/jquery.dataTables.min.js"></script>
     <script src="assets/vendors/datatables/dataTables.bootstrap.min.js"></script>
     <script src="assets/js/pages/e-commerce-order-list.js"></script>
-    <script src="assets/vendors/select2/select2.min.js"></script>
-    <script src="assets/vendors/quill/quill.min.js"></script>
-    <script src="assets/js/pages/e-commerce-product-edit.js"></script>
-    
-
 
     <!-- Core JS -->
     <script src="assets/js/app.min.js"></script>
-    <!-- <script>    
-        $('.select2').select2();
-        new Quill('#editor', {
-            theme: 'snow'
-        });
-    </script> -->
 
 </body>
 
