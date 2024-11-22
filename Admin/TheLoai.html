@@ -4,12 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Thống kê</title>
+    <title>Thể loại phim</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/images/logo/favicon.png">
 
     <!-- page css -->
+    <link href="assets/vendors/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
 
     <!-- Core css -->
     <link href="assets/css/app.min.css" rel="stylesheet">
@@ -159,7 +160,7 @@
             <div class="side-nav">
                 <div class="side-nav-inner">
                     <ul class="side-nav-menu scrollable">
-                        <li class="nav-item dropdown open">
+                        <li class="nav-item dropdown">
                             <a class="dropdown-toggle" href="javascript:void(0);">
                                 <span class="icon-holder">
                                     <i class="anticon anticon-dashboard"></i>
@@ -170,7 +171,7 @@
                                 </span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="active">
+                                <li>
                                     <a href="index.html">Thống kê</a>
                                 </li>
                             </ul>
@@ -194,7 +195,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown open">
                             <a class="dropdown-toggle" href="javascript:void(0);">
                                 <span class="icon-holder">
 									<i class="anticon anticon-folder-open"></i>
@@ -211,7 +212,7 @@
                                 <li>
                                     <a href="DanhSachPhim.html">Danh sách phim</a>
                                 </li>
-                                <li>
+                                <li class="active">
                                     <a href="TheLoai.html">Thể loại</a>
                                 </li>
                             </ul>
@@ -344,321 +345,318 @@
 
             <!-- Page Container START -->
             <div class="page-container">
-
                 <!-- Content Wrapper START -->
                 <div class="main-content">
-                    <div class="row">
-                        <div class="col-md-6 col-lg-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="media align-items-center">
-                                        <div class="avatar avatar-icon avatar-lg avatar-blue">
-                                            <i class="anticon anticon-dollar"></i>
-                                        </div>
-                                        <div class="m-l-15">
-                                            <h2 class="m-b-0">2.947.880.000đ</h2>
-                                            <p class="m-b-0 text-muted">Tổng doanh thu</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="media align-items-center">
-                                        <div class="avatar avatar-icon avatar-lg avatar-cyan">
-                                            <i class="anticon anticon-line-chart"></i>
-                                        </div>
-                                        <div class="m-l-15">
-                                            <h2 class="m-b-0">+ 17.21%</h2>
-                                            <p class="m-b-0 text-muted">Mức độ phát triển</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="media align-items-center">
-                                        <div class="avatar avatar-icon avatar-lg avatar-gold">
-                                            <i class="anticon anticon-profile"></i>
-                                        </div>
-                                        <div class="m-l-15">
-                                            <h2 class="m-b-0">1,685</h2>
-                                            <p class="m-b-0 text-muted">Tổng đơn hàng</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="media align-items-center">
-                                        <div class="avatar avatar-icon avatar-lg avatar-purple">
-                                            <i class="anticon anticon-user"></i>
-                                        </div>
-                                        <div class="m-l-15">
-                                            <h2 class="m-b-0">900</h2>
-                                            <p class="m-b-0 text-muted">Khách hàng</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="page-header">
+                        <div class="header-sub-title">
+                            <nav class="breadcrumb breadcrumb-dash">
+                                <a href="#" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+                                <a class="breadcrumb-item" href="#">Quản lý phim</a>
+                                <span class="breadcrumb-item active">Thể loại phim</span>
+                            </nav>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12 col-lg-8">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <h5>Tổng doanh thu</h5>
-                                        <div>
-                                            <div class="btn-group">
-                                                <button class="btn btn-default active">
-                                                    <span>Tháng</span>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row m-b-30">
+                                <div class="col-lg-7">
+                                </div>
+                                <div class="col-lg-5 text-right">
+                                    <button class="btn btn-primary " data-toggle="modal" data-target="#them-the-loai" >
+                                        <i class="anticon anticon-plus-circle m-r-5"></i>
+                                        <span>Thêm thể loại mới</span>
+                                    </butt>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <!-- Thêm thể loại -->
+                                <div class="modal fade bd-example-modal-lg" id="them-the-loai" style="padding-right: 17px;" aria-modal="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <form id="myForm">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" style="text-align:center">Thêm thể loại</h4>
+                                                    <button type="button" class="close" data-dismiss="modal">
+                                                        <i class="anticon anticon-close"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <label class="font-weight-semibold">Tên Thể Loại</label>
+                                                        <input class="form-control" >
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Thoát</button>
+                                                    <button id="btnAdd" type="submit" class="btn btn-success" data-dismiss="modal" onclick="showToast('Thêm');">
+                                                        <i class="anticon anticon-plus-circle"></i>
+                                                        <span>Thêm</span>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal xóa thể loại -->
+                                <div class="modal fade" id="xoa-the-loai">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Bạn có chắc chắn muốn xóa?</h4>
+                                                <button type="button" class="close" data-dismiss="modal">
+                                                    <i class="anticon anticon-close"></i>
                                                 </button>
-                                                <button class="btn btn-default">
-                                                    <span>Năm</span>
+                                            </div>
+                                            <div class="modal-body">
+                                                    <h4  class="font-weight-semibold">Thể loại: Kinh dị</h4>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary " data-dismiss="modal">Thoát</button>
+                                                <button type="button" class="btn btn-danger  delete-link" onclick="showToast('Xóa')" data-dismiss="modal">Xóa</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal sửa thể loại -->
+                                <div class="modal fade bd-example-modal-lg" id="sua-the-loai">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Sửa thể loại</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
                                                 </button>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="m-t-50" style="height: 330px">
-                                        <canvas class="chart" id="revenue-chart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-lg-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="m-b-0">Khách hàng</h5>
-                                    <div class="m-v-60 text-center" style="height: 200px">
-                                        <canvas class="chart" id="customers-chart"></canvas>
-                                    </div>
-                                    <div class="row border-top p-t-25">
-                                        <div class="col-4">
-                                            <div class="d-flex justify-content-center">
-                                                <div class="media align-items-center">
-                                                    <span class="badge badge-success badge-dot m-r-10"></span>
-                                                    <div class="m-l-5">
-                                                        <h4 class="m-b-0">350</h4>
-                                                        <p class="m-b-0 muted">Khách hàng mới</p>
-                                                    </div>    
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="d-flex justify-content-center">
-                                                <div class="media align-items-center">
-                                                    <span class="badge badge-secondary badge-dot m-r-10"></span>
-                                                    <div class="m-l-5">
-                                                        <h4 class="m-b-0">450</h4>
-                                                        <p class="m-b-0 muted">Khách hàng quay lại</p>
-                                                    </div>    
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="d-flex justify-content-center">
-                                                <div class="media align-items-center">
-                                                    <span class="badge badge-warning badge-dot m-r-10"></span>
-                                                    <div class="m-l-5">
-                                                        <h4 class="m-b-0">100</h4>
-                                                        <p class="m-b-0 muted">Khách hàng cũ</p>
-                                                    </div>    
-                                                </div>
+                                            <div class="modal-body">
+                                                <form id="formUpdate" method="post" enctype="multipart/form-data">
+                                                    <div class="tab-content m-t-15">
+                                                        <div class="form-group">
+                                                            <label class="font-weight-semibold" for="TenTL">Tên Thể Loại</label>
+                                                            <input id="TenTL" class="form-control" name="TenTL" value="Cầu Hồn">
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Thoát</button>
+                                                        <button id="btnUpdate" type="submit" class="btn btn-success" data-dismiss="modal" onclick="showToast('Cập nhật');">
+                                                            <i class="anticon anticon-save"></i>
+                                                            <span>Lưu thay đổi</span>
+                                                        </button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 col-lg-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div>
-                                            <h2 class="m-b-0">125.452.912đ</h2>
-                                            <p class="m-b-0 text-muted">Lợi nhuận trung bình các tháng</p>
-                                        </div>
-                                        <div>
-                                            <span class="badge badge-pill badge-cyan font-size-12">
-                                                <span class="font-weight-semibold m-l-5">+5.7%</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="m-t-50" style="height: 375px">
-                                         <canvas class="chart" id="avg-profit-chart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-lg-8">
-                            <div class="card">
-                                <div class="card-body">
-                                   <div class="d-flex justify-content-between align-items-center">
-                                        <h5>Sản phẩm bán chạy</h5>
-                                        <div>
-                                            <a href="javascript:void(0);" class="btn btn-sm btn-default">Xem tất cả</a>
-                                        </div>
-                                    </div>
-                                    <div class="m-t-30">
-                                        <div class="table-responsive">
-                                            <table class="table table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Sản phẩm</th>
-                                                        <th>Đã bán</th>
-                                                        <th>Lợi nhuận</th>
-                                                        <th style="max-width: 70px">Số lượng còn lại</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="media align-items-center">
-                                                                <div class="avatar avatar-image rounded">
-                                                                    <img src="../assets/img/product/nikon-z7-1.jpg" alt="">
-                                                                </div>
-                                                                <div class="m-l-10">
-                                                                    <span>Máy ảnh Nikon Z7 II Body</span>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>81</td>
-                                                        <td>761.983.461đ</td>
-                                                        <td>
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="progress progress-sm w-100 m-b-0">
-                                                                    <div class="progress-bar bg-success" style="width: 82%"></div>
-                                                                </div>
-                                                                <div class="m-l-10">
-                                                                    82
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="media align-items-center">
-                                                                <div class="avatar avatar-image rounded">
-                                                                    <img src="../assets/img/product/sony-alpha-A6700-1.jpg" alt="">
-                                                                </div>
-                                                                <div class="m-l-10">
-                                                                    <span>Máy ảnh Sony Alpha A6700</span>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>26</td>
-                                                        <td>634.923.713đ</td>
-                                                        <td>
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="progress progress-sm w-100 m-b-0">
-                                                                    <div class="progress-bar bg-success" style="width: 61%"></div>
-                                                                </div>
-                                                                <div class="m-l-10">
-                                                                    61
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="media align-items-center">
-                                                                <div class="avatar avatar-image rounded">
-                                                                    <img src="../assets/img/product/nikonz50-1.jpg" alt="">
-                                                                </div>
-                                                                <div class="m-l-10">
-                                                                    <span>Máy ảnh Nikon Z50</span>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>71</td>
-                                                        <td>451.394.231đ</td>
-                                                        <td>
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="progress progress-sm w-100 m-b-0">
-                                                                    <div class="progress-bar bg-danger" style="width: 23%"></div>
-                                                                </div>
-                                                                <div class="m-l-10">
-                                                                    23
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="media align-items-center">
-                                                                <div class="avatar avatar-image rounded">
-                                                                    <img src="../assets/img/product/canoneos-1.jpg" alt="">
-                                                                </div>
-                                                                <div class="m-l-10">
-                                                                    <span>Máy ảnh Canon EOS RP</span>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>79</td>
-                                                        <td>231.321.544đ</td>
-                                                        <td>
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="progress progress-sm w-100 m-b-0">
-                                                                    <div class="progress-bar bg-warning" style="width: 54%"></div>
-                                                                </div>
-                                                                <div class="m-l-10">
-                                                                    54
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="media align-items-center">
-                                                                <div class="avatar avatar-image rounded">
-                                                                    <img src="../assets/img/product/nikonz50-1.jpg" alt="">
-                                                                </div>
-                                                                <div class="m-l-10">
-                                                                    <span>Máy ảnh Nikon Z30 Body</span>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>60</td>
-                                                        <td>398.231.433đ</td>
-                                                        <td>
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="progress progress-sm w-100 m-b-0">
-                                                                    <div class="progress-bar bg-success" style="width: 76%"></div>
-                                                                </div>
-                                                                <div class="m-l-10">
-                                                                    76
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
+                                <table class="table table-hover e-commerce-table" >
+                                    <thead>
+                                        <tr role="row">
+                                            <th>ID</th>
+                                            <th>Tên thể loại</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr role="row" class="odd" style="width:fit-content;">
+                                            <td>15 </td>
+                                            <td>Tâm lý </td>
+                                            <td class="text-right">
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded " data-toggle="modal" data-target="#sua-the-loai">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-the-loai">
+                                                    <i class="anticon anticon-delete"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd" style="width:fit-content;">
+                                            <td>14 </td>
+                                            <td>Chính kịch </td>
+
+                                            <td class="text-right">
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded " data-toggle="modal" data-target="#sua-the-loai">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-the-loai">
+                                                    <i class="anticon anticon-delete"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd" style="width:fit-content;">
+                                            <td>13 </td>
+                                            <td>Phiêu lưu </td>
+
+                                            <td class="text-right">
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded " data-toggle="modal" data-target="#sua-the-loai">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-the-loai">
+                                                    <i class="anticon anticon-delete"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd" style="width:fit-content;">
+                                            <td>12 </td>
+                                            <td>Tâm lý tội phạm </td>
+
+                                            <td class="text-right">
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded " data-toggle="modal" data-target="#sua-the-loai">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-the-loai">
+                                                    <i class="anticon anticon-delete"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd" style="width:fit-content;">
+                                            <td>11 </td>
+                                            <td>Lịch sử </td>
+
+                                            <td class="text-right">
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded " data-toggle="modal" data-target="#sua-the-loai">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-the-loai">
+                                                    <i class="anticon anticon-delete"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd" style="width:fit-content;">
+                                            <td>10 </td>
+                                            <td>Cổ trang </td>
+
+                                            <td class="text-right">
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded " data-toggle="modal" data-target="#sua-the-loai">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-the-loai">
+                                                    <i class="anticon anticon-delete"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd" style="width:fit-content;">
+                                            <td>9 </td>
+                                            <td>Kiếm hiệp </td>
+
+                                            <td class="text-right">
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded " data-toggle="modal" data-target="#sua-the-loai">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-the-loai">
+                                                    <i class="anticon anticon-delete"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd" style="width:fit-content;">
+                                            <td>8 </td>
+                                            <td>Ca nhạc </td>
+
+                                            <td class="text-right">
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded " data-toggle="modal" data-target="#sua-the-loai">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-the-loai">
+                                                    <i class="anticon anticon-delete"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd" style="width:fit-content;">
+                                            <td>7 </td>
+                                            <td>Hoạt hình 3D </td>
+
+                                            <td class="text-right">
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded " data-toggle="modal" data-target="#sua-the-loai">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-the-loai">
+                                                    <i class="anticon anticon-delete"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd" style="width:fit-content;">
+                                            <td>6 </td>
+                                            <td>Chiến tranh </td>
+
+                                            <td class="text-right">
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded " data-toggle="modal" data-target="#sua-the-loai">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-the-loai">
+                                                    <i class="anticon anticon-delete"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd" style="width:fit-content;">
+                                            <td>5 </td>
+                                            <td>Hoạt hình 2D </td>
+    
+                                            <td class="text-right">
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded " data-toggle="modal" data-target="#sua-the-loai">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-the-loai">
+                                                    <i class="anticon anticon-delete"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd" style="width:fit-content;">
+                                            <td>4 </td>
+                                            <td>Hành động </td>
+    
+                                            <td class="text-right">
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded " data-toggle="modal" data-target="#sua-the-loai">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-the-loai">
+                                                    <i class="anticon anticon-delete"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd" style="width:fit-content;">
+                                            <td>3 </td>
+                                            <td>Khoa học viễn tưởng </td>
+    
+                                            <td class="text-right">
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded " data-toggle="modal" data-target="#sua-the-loai">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-the-loai">
+                                                    <i class="anticon anticon-delete"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd" style="width:fit-content;">
+                                            <td>2 </td>
+                                            <td>Hài hước </td>
+    
+                                            <td class="text-right">
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded " data-toggle="modal" data-target="#sua-the-loai">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-the-loai">
+                                                    <i class="anticon anticon-delete"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd" style="width:fit-content;">
+                                            <td>1 </td>
+                                            <td>Kinh dị </td>
+    
+                                            <td class="text-right">
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded " data-toggle="modal" data-target="#sua-the-loai">
+                                                    <i class="anticon anticon-edit"></i>
+                                                </button>
+                                                <button class="btn btn-icon btn-hover btn-sm btn-rounded" data-toggle="modal" data-target="#xoa-the-loai">
+                                                    <i class="anticon anticon-delete"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Content Wrapper END -->
-
-                <!-- Footer START -->
-                <footer class="footer">
-                    <div class="footer-content">
-                        <p class="m-b-0">Duong Cong Minh - Nguyen Thi Thu Huong</p>
-                    </div>
-                </footer>
-                <!-- Footer END -->
-
             </div>
             <!-- Page Container END -->
 
@@ -811,15 +809,55 @@
     </div>
 
     
+    <div class="notification-toast top-right" id="notification-toast"></div>
     <!-- Core Vendors JS -->
     <script src="assets/js/vendors.min.js"></script>
 
     <!-- page js -->
-    <script src="assets/vendors/chartjs/Chart.min.js"></script>
-    <script src="assets/js/pages/dashboard-default.js"></script>
+    <script src="assets/vendors/datatables/jquery.dataTables.min.js"></script>
+    <script src="assets/vendors/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="assets/js/pages/e-commerce-order-list.js"></script>
 
     <!-- Core JS -->
     <script src="assets/js/app.min.js"></script>
+
+    <script>   
+        function showToast(action) {
+            var toastHTML = `<div class="toast fade hide" data-delay="5000">
+                <div class="toast-header">
+                    <i class="anticon anticon-info-circle text-primary m-r-5"></i>
+                    <strong class="mr-auto">Thông báo</strong>
+                    <button type="button" class="ml-2 close" data-dismiss="toast" aria-label="Tắt">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="toast-body">
+                    ${action} thể loại thành công!
+                </div>
+            </div>`
+        
+            $('#notification-toast').append(toastHTML)
+            $('#notification-toast .toast').toast('show');
+            setTimeout(function(){ 
+                $('#notification-toast .toast:first-child').remove();
+            }, 5000);
+        }
+
+        // Xử lý sự kiện submit
+        document.getElementById("formUpdate").addEventListener("submit", function(event) {
+            event.preventDefault();
+            // var btnUpdate = document.getElementById("btnUpdate");
+            // btnUpdate.setAttribute("data-dismiss","modal")
+            // showToast("Cập nhật");
+        });
+
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // var btnUpdate = document.getElementById("btnAdd");
+            // btnAdd.setAttribute("data-dismiss","modal")
+            // showToast("Thêm");
+        });
+    </script>
 
 </body>
 
