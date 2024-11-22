@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/DangKy.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">    <script src="https://kit.fontawesome.com/178af03e68.js" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <div class="main">
+        <header id="header">
+
+            <div class="header_content">
+                <div class="grid">
+                    <div class="form">
+                        <div class="language">
+                            <img src="https://www.betacinemas.vn/Assets/Common/icons/vietnam.png" alt="" class="vn_flag">
+                        </div>
+                        <!-- <div class="form_register--login">
+                            <span class="login">Đăng nhập</span>
+                            <span class="line"></span>
+                            <span class="register">Đăng ký</span>
+                        </div> -->
+                        <div class="user">
+                            <div class="user_name">
+                                <span >Xin chào : phong lẩn</span>
+                                <!-- <span><i class="fa-solid fa-angle-down"></i></span>  -->
+                            </div>
+                            <div class="user_inf4">
+                                <ul class="user_list">
+                                    <li><a href="#"><i class="fa-solid fa-user-large"></i>Thông tin tài khoản</li></a>
+                                    <li><a href="#"><i class="fa-solid fa-wallet"></i>Lich sử giao dịch</li></a>
+                                    <li><a href="#"><i class="fa-solid fa-square-caret-left"></i>Đăng xuất</li></a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="grid" style="background-color: white; padding-bottom: 15px;">
+                <nav id="navbar">
+                    <div class="logo">
+                        <img src="https://www.betacinemas.vn/Assets/Common/logo/logo.png" alt="" class="logo_img">
+                    </div>
+                    <div class="options">
+                        <div class="options_city">
+                            <div class="options_content">
+                                <span class="options_text">Beta Hà Nội</span>
+                                <!-- <i class="fa-solid fa-angle-down"></i> -->
+                            </div>
+                            <!-- <ul class="subnav_options">
+                                <li><a href="">Beta Hà Nội</a> <i class="fa-solid fa-angle-right"></i></li>
+                            </ul> -->
+                        </div>
+                    </div>
+                    <div class="nav_contents">
+                        <li><a href="">Lịch chiếu</a></li>
+                        <li><a href="">Phim</a></li>
+                        <li><a href="">Tin tức</a></li>
+                        <li><a href="">Ưu đãi</a></li>
+                        <li><a href="">Thành viên</a></li>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        
+
+        <div class="grid">
+            <div class="form-container">
+                <div class="tab">
+                    <button class="tablinks active" onclick="openTab(event, 'Register')">ĐĂNG KÝ</button>
+                    <button class="tablinks" onclick="openTab(event, 'Login')">ĐĂNG NHẬP</button>
+                </div>
+                <div id="Register" class="tabcontent" style="display: block;">
+                    <form action="#" method="post">
+                        <div class="form-row">
+                            <!-- Họ và tên -->
+                            <div class="form-group">
+                                <label for="fullname">Họ và tên</label>
+                                <input type="text" id="fullname" name="fullname" >
+                                <span class="error-message" id="fullname-error"></span>
+                            </div>
+            
+                            <!-- Địa chỉ email -->
+                            <div class="form-group">
+                                <label for="email">Địa chỉ email</label>
+                                <input type="email" id="email" name="email" >
+                                <span class="error-message" id="email-error"></span>
+                            </div>
+                        </div>
+            
+                        <div class="form-row">
+                            <!-- Số điện thoại -->
+                            <div class="form-group">
+                                <label for="phone">Số điện thoại</label>
+                                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}"  placeholder="Ví dụ: 0123456789">
+                                <span class="error-message" id="phone-error"></span>
+                            </div>
+            
+                            <!-- Ngày tháng năm sinh -->
+                            <!-- <div class="form-group">
+                                <label for="dob">Ngày tháng năm sinh</label>
+                                <input type="date" id="dob" name="dob" >
+                                <span class="error-message" id="dob-error"></span>
+                            </div> -->
+                        </div>
+            
+                        <div class="form-row">
+                            <!-- Mật khẩu -->
+                            <div class="form-group password-container">
+                                <label for="password">Mật khẩu</label>
+                                <div class="hiepbubuoi">
+                                    <input type="password" id="password" name="password" >
+                                    <span class="toggle-password" onclick="togglePasswordVisibility('password')">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </span>
+                                </div>
+                                <span class="error-message" id="password-error"></span>
+                            </div>
+            
+                            <!-- Xác nhận mật khẩu -->
+                            <div class="form-group password-container">
+                                <label for="confirm-password">Xác nhận mật khẩu</label>
+                                <div class="hiepbubuoi">
+                                    <input type="password" id="confirm-password" name="confirm-password" >
+                                    <span class="toggle-password" onclick="togglePasswordVisibility('confirm-password')">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </span>
+                                </div>
+                                <span class="error-message" id="confirm-password-error"></span>
+                            </div>
+                        </div>
+            
+                        <div class="form-row">
+                            <!-- Giới tính -->
+                            <!-- <div class="form-group">
+                                <label for="gender">Giới tính</label>
+                                <select id="gender" name="gender" >
+                                    <option value="male">Nam</option>
+                                    <option value="female">Nữ</option>
+                                    <option value="other">Khác</option>
+                                </select>
+                                <span class="error-message" id="gender-error"></span>
+                            </div> -->
+                        </div>
+            
+                        <!-- Submit button -->
+                        <button id="btnRegister" type="submit">ĐĂNG KÝ</button>
+                    </form>
+                </div>
+
+                <div id="Login" class="tabcontent" style="display: none;">
+                    <form action="#" method="post">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="login-email">Địa chỉ email</label>
+                                <input type="email" id="login-email" name="login-email">
+                                <span class="error-message" id="login-email-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="login-password">Mật khẩu</label>
+                                <input type="password" id="login-password" name="login-password">
+                                <span class="error-message" id="login-password-error"></span>
+                            </div>
+                        </div>
+                        <button id="btnLogin" type="submit">ĐĂNG NHẬP</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- OTP -->
+        <div class="otp-container" id="otpPopup">
+            <div class="otp-card-wrapper">
+                <div class="otp-card">
+                    <span class="close" id="closeOtpPopup">&times;</span>
+                    <h6>Vui lòng nhập mã OTP để xác minh tài khoản của bạn</h6>
+                    <div> <span>Mã đã được gửi đến số</span> <small>0983868278</small> </div>
+                    <div id="otp" class="otp-inputs">
+                        <input class="otp-input" type="text" id="first" maxlength="1" />
+                        <input class="otp-input" type="text" id="second" maxlength="1" /> 
+                        <input class="otp-input" type="text" id="third" maxlength="1" /> 
+                        <input class="otp-input" type="text" id="fourth" maxlength="1" /> 
+                        <input class="otp-input" type="text" id="fifth" maxlength="1" /> 
+                        <input class="otp-input" type="text" id="sixth" maxlength="1" /> 
+                    </div>
+                    <div class="otp-validate-wrapper"> 
+                        <button class="otp-validate-button">XÁC NHẬN</button> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="grid" style="border-top: 3px solid #ccc; background-color: #F8F8F8;">
+            <div id="footer">
+                <div class="footer_content">
+                    <div class="footer_content--info">
+                        <img src="https://www.betacinemas.vn/Assets/Common/logo/logo.png" alt="" class="footer_info--img">
+                        <div class="footer_info--list">
+                            <li><i class="fa-solid fa-angle-right"></i><a href="">Tuyển dụng</a></li>
+                            <li><i class="fa-solid fa-angle-right"></i><a href="">Giới thiệu</a></li>
+                            <li><i class="fa-solid fa-angle-right"></i><a href="">Liên hệ</a></li>
+                            <li><i class="fa-solid fa-angle-right"></i><a href="">Hướng dẫn đặt vé online</a></li>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_content--cinema">
+                        <div class="footer_cinema--text">điều khoản sử dụng</div>
+                        <div class="footer_cinema--list">
+                            <li><i class="fa-solid fa-angle-right"></i><a href="">điều khoản chung</a></li>
+                            <li><i class="fa-solid fa-angle-right"></i><a href="">điều khoản giao dịch</a></li>
+                            <li><i class="fa-solid fa-angle-right"></i><a href="">điều khoản thanh toán</a></li>
+                            <li><i class="fa-solid fa-angle-right"></i><a href="">điều khoản bảo mật</a></li>
+                            <li><i class="fa-solid fa-angle-right"></i><a href="">điều khoản thường gặp</a></li>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_content--connect">
+                        <div class="footer_connect--text">Kết nối với chúng tôi</div>
+                        <div class="footer_connect--icon">
+                            <i class="fa-brands fa-square-facebook"></i>
+                            <i class="fa-brands fa-youtube"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <div class="footer_connect--img">
+                            <img src="https://www.betacinemas.vn/Assets/Common/logo/dathongbao.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="footer_content--contact">
+                        <div class="footer_contact--text">Liên hệ</div>
+                        <div class="footer_contact--list">
+                            <li>CÔNG TY CỔ PHẦN BETA MEDIA</li>
+                            <li>Địa chỉ trụ sở: Tầng 3, số 595, đường Giải Phóng, phường Giáp Bát, quận Hoàng Mai, thành phố Hà Nội</li>
+                            <li>Hotline: 1900 636807</li>
+                            <li>Email: cskh@betacorp.vn</li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         
+    </div>
+<!-- modal -->
+<script src="/assets/js/DangKy.js"></script>
+    
+</body>
+</html>
+ 
